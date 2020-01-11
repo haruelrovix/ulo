@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { View } from 'react-native';
 
-import HeaderComponent from './Header'
-import DateListComponent from './DateList'
-import DiscountComponent from './Discount'
+import HeaderComponent from './Header';
+import DateListComponent from './DateList';
+import DiscountComponent from './Discount';
 
 const DailyDeals = () => {
   return (
@@ -11,7 +12,7 @@ const DailyDeals = () => {
       <DateListComponent />
       <DiscountComponent />
     </View>
-  )
-}
+  );
+};
 
-export default DailyDeals
+export default DailyDeals;

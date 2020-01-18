@@ -1,10 +1,34 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-const DateList = props => (
-  <View>
-    <Text>This will be DateList component with {}</Text>
-  </View>
-);
+import DateButton from './DateButton';
+
+const DateList = props => {
+  const onDatePress = date => {
+    props.onDatePress(date);
+  };
+
+  return (
+    <View style={style.container}>
+      {props.dates.map((date, i) => {
+        const disabled = props.data[date.dayOfWeek] ? false : true;
+        return (
+          <DateButton
+            date={date}
+            key={i}
+            onDatePress={onDatePress}
+            disabled={disabled}
+          />
+        );
+      })}
+    </View>
+  );
+};
+
+const style = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+  },
+});
 
 export default DateList;

@@ -147,7 +147,7 @@
       "start_time": "15:30",
       "tier": "offPeak",
       "pax": 3,
-      "discount": 55,
+      "discount": 65,
       "active": 1
     },
     {
@@ -287,7 +287,7 @@
       "start_time": "15:30",
       "tier": "offPeak",
       "pax": 3,
-      "discount": 55,
+      "discount": 50,
       "active": 1
     },
     {
@@ -797,7 +797,7 @@
       "start_time": "12:30",
       "tier": "offPeak",
       "pax": 3,
-      "discount": 55,
+      "discount": 35,
       "active": 1
     },
     {
@@ -1074,10 +1074,10 @@
       "id": "b4de12ef-4b6e-47d3-ac0c-08d6cf4638af",
       "provider_category_id": "7c8ea264-2cd3-4e5b-8f40-46a1a6fda174_1259a190-f352-40ba-94fc-b85ff84866c4",
       "day_of_week": 4,
-      "start_time": "15:30",
+      "start_time": "10:30",
       "tier": "offPeak",
       "pax": 3,
-      "discount": 55,
+      "discount": 75,
       "active": 1
     },
     {
@@ -1447,7 +1447,7 @@
       "start_time": "15:30",
       "tier": "offPeak",
       "pax": 3,
-      "discount": 55,
+      "discount": 35,
       "active": 1
     },
     {
@@ -2087,17 +2087,17 @@
       "start_time": "12:30",
       "tier": "offPeak",
       "pax": 3,
-      "discount": 55,
+      "discount": 35,
       "active": 1
     },
     {
       "id": "c9548a50-c712-4b02-bb28-1986a21dcaa5",
       "provider_category_id": "7c8ea264-2cd3-4e5b-8f40-46a1a6fda174_1259a190-f352-40ba-94fc-b85ff84866c4",
       "day_of_week": 5,
-      "start_time": "11:00",
+      "start_time": "20:00",
       "tier": "offPeak",
       "pax": 3,
-      "discount": 55,
+      "discount": 45,
       "active": 1
     },
     {

@@ -9,18 +9,13 @@ const Discount = props => {
   };
   const {discount} = props;
 
-  const renderItem = ({item}) => {
-    const selected =
-      discount.selectedId === item.id ? style.selected : undefined;
-
-    return (
-      <DiscountButton
-        selected={selected}
-        deal={item}
-        onDiscountPress={onDiscountPress}
-      />
-    );
-  };
+  const renderItem = ({item}) => (
+    <DiscountButton
+      selected={discount.selectedId === item.id}
+      deal={item}
+      onDiscountPress={onDiscountPress}
+    />
+  );
 
   return (
     <View style={style.container}>
@@ -36,10 +31,9 @@ const Discount = props => {
 
 const style = StyleSheet.create({
   container: {
+    backgroundColor: '#f7faf7',
     flexDirection: 'row',
-  },
-  selected: {
-    backgroundColor: 'pink',
+    paddingVertical: 20,
   },
 });
 

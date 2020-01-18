@@ -2,34 +2,47 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const DateButton = props => {
-  const disabled = props.disabled ? style.disabled : undefined;
-  const {date} = props;
+  const {date, disabled, selected} = props;
 
   const onDatePress = () => {
     props.onDatePress(date);
   };
 
+  const renderText = (text, isBig) => (
+    <Text style={[style.text(disabled, selected), style.size(isBig)]}>
+      {text}
+    </Text>
+  );
+
   return (
     <TouchableOpacity
       onPress={onDatePress}
-      style={[style.button, disabled]}
+      style={style.button(disabled, selected)}
       disabled={props.disabled}>
-      <Text>{date.day}</Text>
-      <Text>{date.dayOfMonth}</Text>
-      <Text>{date.month}</Text>
+      {renderText(date.day, false)}
+      {renderText(date.dayOfMonth, true)}
+      {renderText(date.month, false)}
     </TouchableOpacity>
   );
 };
 
 const style = StyleSheet.create({
-  button: {
-    borderColor: 'green',
+  button: (disabled, selected) => ({
+    alignItems: 'center',
+    backgroundColor: selected ? '#ec3365' : '#f9fcf9',
+    borderColor: disabled ? '#f9fcf9' : '#ec3363',
+    borderRadius: 15,
     borderWidth: 1,
-    margin: 2,
-  },
-  disabled: {
-    backgroundColor: 'grey',
-  },
+    marginLeft: 15,
+    padding: 10,
+    width: 60,
+  }),
+  text: (disabled, selected) => ({
+    color: disabled ? '#818481' : selected ? '#fefafd' : '#ec3363',
+  }),
+  size: isBig => ({
+    fontSize: isBig ? 20 : 12,
+  }),
 });
 
 export default DateButton;

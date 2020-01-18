@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
 
 import DateButton from './DateButton';
 
@@ -9,25 +9,28 @@ const DateList = props => {
   };
 
   return (
-    <View style={style.container}>
+    <ScrollView style={style.container} horizontal>
       {props.dates.map((date, i) => {
         const disabled = props.data[date.dayOfWeek] ? false : true;
+
         return (
           <DateButton
             date={date}
             key={i}
             onDatePress={onDatePress}
             disabled={disabled}
+            selected={props.selectedDate === date.dayOfMonth}
           />
         );
       })}
-    </View>
+    </ScrollView>
   );
 };
 
 const style = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    marginBottom: 20,
   },
 });
 

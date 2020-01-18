@@ -14,6 +14,7 @@ class DailyDeals extends Component {
     data: getSortedData(rawData),
     dates: [],
     selectedDeal: {deals: []},
+    selectedDate: null,
   };
 
   componentDidMount() {
@@ -23,10 +24,10 @@ class DailyDeals extends Component {
     for (let i = 0; i < 7; i++) {
       const date = add(today, {days: i});
       dates[i] = {
-        day: format(date, 'E'),
+        day: format(date, 'E').toUpperCase(),
         dayOfMonth: format(date, 'd'),
         dayOfWeek: format(date, 'i'),
-        month: format(date, 'MMM'),
+        month: format(date, 'MMM').toUpperCase(),
       };
     }
 
@@ -41,7 +42,7 @@ class DailyDeals extends Component {
         deal => deal.discount === selectedDeal.maxDiscount,
       ) || {}
     ).id;
-    this.setState({selectedDeal});
+    this.setState({selectedDeal, selectedDate: date.dayOfMonth});
   };
 
   onDiscountPress = deal => {
@@ -51,7 +52,7 @@ class DailyDeals extends Component {
   };
 
   render() {
-    const {data, dates, selectedDeal} = this.state;
+    const {data, dates, selectedDeal, selectedDate} = this.state;
 
     return (
       <View>
@@ -59,12 +60,15 @@ class DailyDeals extends Component {
         <DateListComponent
           data={data}
           dates={dates}
+          selectedDate={selectedDate}
           onDatePress={this.onDatePress}
         />
-        <DiscountComponent
-          discount={selectedDeal}
-          onDiscountPress={this.onDiscountPress}
-        />
+        {selectedDate && (
+          <DiscountComponent
+            discount={selectedDeal}
+            onDiscountPress={this.onDiscountPress}
+          />
+        )}
       </View>
     );
   }

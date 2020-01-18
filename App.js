@@ -9,7 +9,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 
-import DailyDeals from './components/DailyDeals';
+import DailyDeals from './containers/DailyDeals';
 
 const App: () => React$Node = () => {
   return (
